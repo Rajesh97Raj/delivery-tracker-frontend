@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class OrderService {
 
-  private apiUrl = https://delivery-tracker-production-33c0.up.railway.app
+  private apiUrl = 'https://delivery-tracker-production-33c0.up.railway.app/orders';
 
   constructor(private http: HttpClient) {}
 
