@@ -1,0 +1,44 @@
+<div class="orders-container">
+
+    <h1>
+        Orders List
+    </h1>
+
+
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Customer</th>
+
+            <th>Product</th>
+
+            <th>Status</th>
+
+        </tr>
+
+
+
+        @for(order of orders; track order.id){
+
+            <tr>
+
+                <td>{{order.id}}</td>
+                <td>{{order.customerName}}</td>
+
+                 <td>{{order.productName}}</td>
+
+
+
+                <td>{{order.status}}</td>
+
+            </tr>
+
+        }
+
+    </table>
+
+</div>

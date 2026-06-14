@@ -1,0 +1,613 @@
+<nav class="navbar">
+
+    <div class="logo">
+        DELIVERY <span>TRACKER</span>
+    </div>
+
+<ul class="nav-links">
+
+    <li>
+        <a routerLink="/">
+            Home
+        </a>
+    </li>
+
+    @if(!isLoggedIn){
+
+        <li>
+            <a routerLink="/support">
+                Contact
+            </a>
+        </li>
+
+    }
+
+    @if(role==='CUSTOMER'){
+
+        <li>
+            <a routerLink="/orders">
+                My Orders
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/tracking">
+                Tracking
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/support">
+                Contact
+            </a>
+        </li>
+
+    }
+
+    @if(role==='DELIVERY_AGENT'){
+
+        <li>
+            <a routerLink="/orders">
+                Assigned Orders
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/tracking">
+                Tracking
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/support">
+                Contact
+            </a>
+        </li>
+
+    }
+
+    @if(role==='ADMIN'){
+
+        <li>
+            <a routerLink="/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/orders">
+                All Orders
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/reports">
+                Reports
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/support">
+                Contact
+            </a>
+        </li>
+
+    }
+
+</ul>
+
+
+    <div class="nav-buttons">
+
+        <!-- PUBLIC NOTIFICATION -->
+
+        <button class="notification-btn" routerLink="/notifications">
+
+            🔔
+
+        </button>
+
+
+        <!-- BEFORE LOGIN -->
+
+        @if(!isLoggedIn){
+
+            <button class="login-btn" routerLink="/login">
+
+                Login
+
+            </button>
+
+
+
+            <button class="signup-btn" routerLink="/register">
+
+                Sign Up
+
+            </button>
+
+        }
+
+
+        <!-- AFTER LOGIN -->
+
+        @if(isLoggedIn){
+
+            <div class="profile-menu">
+
+                <button class="profile-btn">
+
+                    👤
+
+                </button>
+
+
+
+                <div class="dropdown-menu">
+
+                    <a routerLink="/profile">
+
+                        Profile Details
+
+                    </a>
+
+
+
+                    <a routerLink="/payment">
+
+                        Payment
+
+                    </a>
+
+
+
+                    <a routerLink="/address">
+
+                        Address
+
+                    </a>
+
+
+
+                    <a (click)="logoutUser()">
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+
+</nav>
+
+
+<p class="access-message">
+
+    {{accessMessage}}
+
+</p>
+
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <p class="welcome">
+            WELCOME TO DELIVERY TRACKER
+        </p>
+
+
+
+        <h1>
+
+            Fast & Reliable <br>
+
+            Delivery <br>
+
+            <span>
+                At Your Doorstep
+            </span>
+
+        </h1>
+
+
+
+        <p class="description">
+
+            We provide real-time tracking, secure deliveries and
+            complete transparency from pickup to drop.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+    <!-- CUSTOMER -->
+
+    @if(role==='CUSTOMER'){
+
+        <a routerLink="/tracking">
+
+            <button class="track-btn">
+
+                Track Your Order
+
+            </button>
+
+        </a>
+
+        <a routerLink="/create-order">
+
+            <button class="create-btn">
+
+                Create Order
+
+            </button>
+
+        </a>
+
+    }
+
+    <!-- DELIVERY AGENT -->
+
+    @if(role==='DELIVERY_AGENT'){
+
+        <a routerLink="/orders">
+
+            <button class="track-btn">
+
+                Assigned Orders
+
+            </button>
+
+        </a>
+
+        <a routerLink="/tracking">
+
+            <button class="create-btn">
+
+                Delivery Tracking
+
+            </button>
+
+        </a>
+
+    }
+
+    <!-- ADMIN -->
+
+    @if(role==='ADMIN'){
+
+        <a routerLink="/dashboard">
+
+            <button class="track-btn">
+
+                Dashboard
+
+            </button>
+
+        </a>
+
+        <a routerLink="/orders">
+
+            <button class="create-btn">
+
+                All Orders
+
+            </button>
+
+        </a>
+
+    }
+
+    <!-- VISITOR -->
+
+    @if(!isLoggedIn){
+
+        <button class="track-btn" (click)="checkAccess()">
+
+            Track Your Order
+
+        </button>
+
+        <button class="create-btn" (click)="checkAccess()">
+
+            Create Order
+
+        </button>
+
+    }
+
+        </div> <!-- ✅ FIXED: closed hero-buttons -->
+
+    </div> <!-- ✅ FIXED: closed hero-left -->
+
+    <div class="hero-right">
+
+        <img src="delivery.png" class="delivery-image">
+
+    </div>
+
+</section> <!-- ✅ FIXED: closed hero section -->
+
+
+<section class="features">
+
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/tracking">
+
+            <div class="feature-card">
+
+                <h2>
+                    Real-Time Tracking
+                </h2>
+
+                <p>
+
+                    Track your orders in real-time
+                    with live updates.
+
+                </p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="feature-card" (click)="checkAccess()">
+
+            <h2>
+                Real-Time Tracking
+            </h2>
+
+            <p>
+
+                Track your orders in real-time
+                with live updates.
+
+            </p>
+
+        </div>
+
+    }
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/payment">
+
+            <div class="feature-card">
+
+                <h2>
+                    Secure & Safe
+                </h2>
+
+                <p>
+
+                    Secure delivery system with
+                    customer protection.
+
+                </p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="feature-card" (click)="checkAccess()">
+
+            <h2>
+                Secure & Safe
+            </h2>
+
+            <p>
+
+                Secure delivery system with
+                customer protection.
+
+            </p>
+
+        </div>
+
+    }
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/delivery-agent">
+
+            <div class="feature-card">
+
+                <h2>
+                    On-Time Delivery
+                </h2>
+
+                <p>
+
+                    Fast and reliable delivery
+                    for every order.
+
+                </p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="feature-card" (click)="checkAccess()">
+
+            <h2>
+                On-Time Delivery
+            </h2>
+
+            <p>
+
+                Fast and reliable delivery
+                for every order.
+
+            </p>
+
+        </div>
+
+    }
+
+
+    <a routerLink="/support">
+
+        <div class="feature-card">
+
+            <h2>
+                24/7 Support
+            </h2>
+
+            <p>
+
+                Customer support available
+                anytime anywhere.
+
+            </p>
+
+        </div>
+
+    </a>
+
+</section>
+
+
+<section class="stats">
+
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/profile">
+
+            <div class="stat-box">
+
+                <h1>10K+</h1>
+
+                <p>Happy Customers</p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="stat-box" (click)="checkAccess()">
+
+            <h1>10K+</h1>
+
+            <p>Happy Customers</p>
+
+        </div>
+
+    }
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/orders">
+
+            <div class="stat-box">
+
+                <h1>50K+</h1>
+
+                <p>Orders Delivered</p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="stat-box" (click)="checkAccess()">
+
+            <h1>50K+</h1>
+
+            <p>Orders Delivered</p>
+
+        </div>
+
+    }
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/dashboard">
+
+            <div class="stat-box">
+
+                <h1>100+</h1>
+
+                <p>Cities Covered</p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="stat-box" (click)="checkAccess()">
+
+            <h1>100+</h1>
+
+            <p>Cities Covered</p>
+
+        </div>
+
+    }
+
+
+    @if(isLoggedIn){
+
+        <a routerLink="/reports">
+
+            <div class="stat-box">
+
+                <h1>4.8/5</h1>
+
+                <p>Customer Rating</p>
+
+            </div>
+
+        </a>
+
+    }
+
+    @if(!isLoggedIn){
+
+        <div class="stat-box" (click)="checkAccess()">
+
+            <h1>4.8/5</h1>
+
+            <p>Customer Rating</p>
+
+        </div>
+
+    }
+
+</section>

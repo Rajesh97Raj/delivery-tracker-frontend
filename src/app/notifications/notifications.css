@@ -1,0 +1,35 @@
+.notifications-container{
+
+    width:70%;
+
+    margin:50px auto;
+
+}
+
+
+
+.notifications-container h1{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.notification-card{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    border-left:5px solid #0b4ea2;
+
+    border-radius:5px;
+
+    box-shadow:0px 0px 5px gray;
+
+}

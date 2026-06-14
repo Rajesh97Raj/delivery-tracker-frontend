@@ -1,0 +1,43 @@
+<div class="payment-container">
+
+    <h1>
+        Payment Page
+    </h1>
+
+
+
+    <input
+    type="text"
+    placeholder="Card Number"
+    [(ngModel)]="cardNumber">
+
+
+
+    <input
+    type="text"
+    placeholder="Card Holder Name"
+    [(ngModel)]="cardHolder">
+
+
+
+    <input
+    type="text"
+    placeholder="Expiry Date"
+    [(ngModel)]="expiry">
+
+
+
+    <input
+    type="password"
+    placeholder="CVV"
+    [(ngModel)]="cvv">
+
+
+
+    <button (click)="makePayment()">
+
+        Pay Now
+
+    </button>
+
+</div>

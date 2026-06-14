@@ -1,0 +1,39 @@
+<div class="create-order-container">
+
+    <h1>
+        Create New Order
+    </h1>
+
+
+
+    <input
+    type="text"
+    placeholder="Customer Name"
+    [(ngModel)]="customerName">
+
+
+
+    <input
+    type="text"
+    placeholder="Product Name"
+    [(ngModel)]="productName">
+
+
+
+    <textarea
+    placeholder="Delivery Address"
+    [(ngModel)]="address">
+
+    </textarea>
+
+
+
+
+
+    <button (click)="createOrder()">
+
+        Create Order
+
+    </button>
+
+</div>

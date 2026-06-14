@@ -1,0 +1,32 @@
+<div class="tracking-container">
+
+    <h1>
+        Customer Tracking
+    </h1>
+
+
+
+    <input
+    type="text"
+    placeholder="Enter Order ID"
+    [(ngModel)]="orderId">
+
+
+
+    <button (click)="trackOrder()">
+
+        Track Order
+
+    </button>
+
+
+
+    <div class="tracking-result">
+
+        <h2>
+            {{trackingStatus}}
+        </h2>
+
+    </div>
+
+</div>

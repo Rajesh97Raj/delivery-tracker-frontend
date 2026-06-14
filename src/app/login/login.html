@@ -1,0 +1,46 @@
+
+<div class="login-page">
+
+    <div class="login-box">
+
+        <h1>Login</h1>
+
+        <p>
+            Welcome back to Delivery Tracker
+        </p>
+
+
+
+        <input
+        type="text"
+        placeholder="Enter Email"
+        [(ngModel)]="email">
+
+
+
+        <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password">
+
+
+
+        <button (click)="loginUser()">
+
+            Login
+
+        </button>
+
+    </div>
+
+</div>
+
+<h1>Login Page</h1>
+
+<input type="text" [(ngModel)]="email">
+
+<input type="password" [(ngModel)]="password">
+
+<button (click)="loginUser()">
+  Login
+</button>

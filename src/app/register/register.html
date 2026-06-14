@@ -1,0 +1,114 @@
+<div class="register-page">
+
+    <div class="register-box">
+
+        <h1>Create Account</h1>
+
+
+
+        <input
+        type="text"
+        placeholder="Enter Name"
+        [(ngModel)]="name">
+
+
+
+        <input
+        type="email"
+        placeholder="Enter Email"
+        [(ngModel)]="email">
+
+
+<div class="password-container">
+
+    <input
+    [type]="showPassword ? 'text' : 'password'"
+    placeholder="Enter Password"
+    [(ngModel)]="password"
+    (input)="checkPasswordStrength()">
+
+    <span
+    class="eye-icon"
+    (click)="showPassword=!showPassword">
+
+        👁
+
+    </span>
+
+</div>
+
+
+
+        <p>
+
+            {{passwordMessage}}
+
+        </p>
+
+
+
+        <div class="password-container">
+
+    <input
+    [type]="showConfirmPassword ? 'text' : 'password'"
+    placeholder="Confirm Password"
+    [(ngModel)]="confirmPassword">
+
+    <span
+    class="eye-icon"
+    (click)="showConfirmPassword=!showConfirmPassword">
+
+        👁
+
+    </span>
+
+</div>
+
+
+        @if(confirmPassword){
+
+            <p>
+
+                {{password===confirmPassword
+                ? 'Passwords Match ✅'
+                : 'Passwords Do Not Match ❌'}}
+
+            </p>
+
+        }
+
+
+
+        <select [(ngModel)]="role">
+
+            <option>CUSTOMER</option>
+
+            <option>DELIVERY_AGENT</option>
+
+          
+
+        </select>
+
+
+
+        @if(errorMessage){
+
+            <p class="error-message">
+
+                {{errorMessage}}
+
+            </p>
+
+        }
+
+
+
+        <button (click)="registerUser()">
+
+            Register
+
+        </button>
+
+    </div>
+
+</div>
