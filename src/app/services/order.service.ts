@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class OrderService {
 
-  private apiUrl = 'http://localhost:8080/orders';
+  private apiUrl = https://delivery-tracker-production-33c0.up.railway.app
 
   constructor(private http: HttpClient) {}
 
