@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080/user';
+  private apiUrl = https://delivery-tracker-production-33c0.up.railway.app
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class UserService {
 
   loginUser(user:any){
 
-    return this.http.post(this.baseUrl + '/login', user);
+    return this.http.post(this.apiUrl + '/login', user);
 
   }
 
@@ -25,7 +25,7 @@ export class UserService {
 
   registerUser(user:any){
 
-    return this.http.post(this.baseUrl + '/register', user);
+    return this.http.post(this.apiUrl + '/register', user);
 
   }
 
